@@ -66,15 +66,22 @@ document.getElementById("svgObject").addEventListener("load", function () {
     // Get the SVG document
     var svgDoc = document.getElementById("svgObject").contentDocument;
 
+    // Select the specific path to animate
+    var pathToAnimate = svgDoc.querySelector("path[stroke='#FF8F47']"); // Select by attribute
 
-    var pathToAnimate = svgDoc.getElementById("path1"); // Replace with your ID
+    // Get the length of the path
+    var pathLength = pathToAnimate.getTotalLength();
 
-    // GSAP animation to fade the path in a loop
+    // Set up the path's initial state
+    pathToAnimate.style.strokeDasharray = pathLength;
+    pathToAnimate.style.strokeDashoffset = pathLength;
+
+    // GSAP animation to draw the path
     gsap.to(pathToAnimate, {
-        duration: 1, // Duration of each fade animation
-        opacity: 0, // Fade out
-        repeat: -1, // Infinite repeat
-        yoyo: true, // Reverse the animation back to the start
-        ease: "power1.inOut" // Easing function
+      duration: 2, // Duration of the drawing animation
+      strokeDashoffset: 0,
+      repeat: -1, // Infinite repeat
+      yoyo: true, // Reverse the animation back to the start
+      ease: "power1.inOut" // Easing function
     });
-});
+  });
