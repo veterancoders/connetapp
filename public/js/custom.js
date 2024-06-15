@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let scrollLeft;
 
     container.addEventListener('mousedown', (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         isDown = true;
         container.classList.add('active');
         startX = e.pageX - container.offsetLeft;
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 1.5; 
+        const walk = (x - startX) * 1.5;
 
         container.scrollLeft = scrollLeft - walk;
     });
@@ -62,20 +62,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.getElementById("svgObject").addEventListener("load", function() {
+document.getElementById("svgObject").addEventListener("load", function () {
     // Get the SVG document
     var svgDoc = document.getElementById("svgObject").contentDocument;
-    
-    // Select all paths within the SVG
-    var paths = svgDoc.querySelectorAll("path");
 
-    // GSAP animation to fade paths in a loop
-    gsap.to(paths, {
-      duration: 1, // Duration of each fade animation
-      opacity: 0, // Fade out
-      stagger: 0.2, // Stagger animation between paths
-      repeat: -1, // Infinite repeat
-      yoyo: true, // Reverse the animation back to the start
-      ease: "power1.inOut" // Easing function
+
+    var pathToAnimate = svgDoc.getElementById("path1"); // Replace with your ID
+
+    // GSAP animation to fade the path in a loop
+    gsap.to(pathToAnimate, {
+        duration: 1, // Duration of each fade animation
+        opacity: 0, // Fade out
+        repeat: -1, // Infinite repeat
+        yoyo: true, // Reverse the animation back to the start
+        ease: "power1.inOut" // Easing function
     });
-  });
+});
