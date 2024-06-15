@@ -27,10 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let startX;
     let scrollLeft;
 
-    cards.forEach(card => {
-        container.appendChild(card.cloneNode(true));
-    });
-
     container.addEventListener('mousedown', (e) => {
         e.preventDefault(); 
         isDown = true;
