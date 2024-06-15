@@ -65,7 +65,8 @@
           <p class="fs-4 text-center">Countries <br>Travel eSIM available</p>
         </div>
         <div class="col col-12 col-lg-9">
-          <img alt="map" src="svg/map.svg" class="w-100">
+        <object  id="svgObject" type="image/svg+xml" data="svg/map.svg"class="w-100"></object>
+
         </div>
       </div>
     </div>

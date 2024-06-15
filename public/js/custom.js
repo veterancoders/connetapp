@@ -61,3 +61,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.getElementById("svgObject").addEventListener("load", function() {
+    // Get the SVG document
+    var svgDoc = document.getElementById("svgObject").contentDocument;
+    
+    // Select all paths within the SVG
+    var paths = svgDoc.querySelectorAll("path");
+
+    // GSAP animation to fade paths in a loop
+    gsap.to(paths, {
+      duration: 1, // Duration of each fade animation
+      opacity: 0, // Fade out
+      stagger: 0.2, // Stagger animation between paths
+      repeat: -1, // Infinite repeat
+      yoyo: true, // Reverse the animation back to the start
+      ease: "power1.inOut" // Easing function
+    });
+  });
